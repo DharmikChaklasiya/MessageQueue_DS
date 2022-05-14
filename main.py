@@ -6,6 +6,8 @@ from fastapi import FastAPI
 import logging
 from asyncio import Queue
 
+LOCAL_HOST = "127.0.0.1"
+
 logging.basicConfig(filename='logging.log')
 
 queue = Queue(maxsize=max_num_of_messages_per_queue)
@@ -26,4 +28,4 @@ async def push(queue_n : str):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=7500)
+    uvicorn.run(app, host=LOCAL_HOST, port=7500)
