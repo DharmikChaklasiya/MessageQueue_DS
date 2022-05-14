@@ -3,6 +3,10 @@ import re
 import uvicorn
 from config import max_num_of_messages_per_queue
 from fastapi import FastAPI
+import logging
+
+logging.basicConfig(filename='logging.log', level=logging.DEBUG,
+                    format='%(asctime)s:%(name)s:%(message)')
 
 app = FastAPI()
 
