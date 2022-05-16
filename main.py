@@ -11,6 +11,7 @@ LOCAL_HOST = "127.0.0.1"
 logging.basicConfig(filename='logging.log')
 
 queue = Queue(maxsize=max_num_of_messages_per_queue)
+queues = {}
 
 app = FastAPI()
 
