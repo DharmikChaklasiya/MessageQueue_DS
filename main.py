@@ -14,6 +14,9 @@ class Job(BaseModel):
     t_stamp: datetime.datetime
     description: str
 
+class Result(BaseModel):
+    job: str
+    t_stamp: datetime.datetime
 
 LOCAL_HOST = "127.0.0.1"
 
@@ -21,14 +24,6 @@ logging.basicConfig(level=logging.INFO,filename='logging.log', encoding='utf8')
 
 queue = Queue(maxsize=max_num_of_messages_per_queue)
 queues = {"jobs": queue}
-
-
-
-class Result(BaseModel):
-    pass
-
-class Job(BaseModel):
-    pass
 
 
 app = FastAPI()
