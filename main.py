@@ -29,7 +29,6 @@ app = FastAPI()
 async def root():
     return {"message": "Hello, message queue"}
 
-# TODO Implement
 @app.post('/queue/{queue_n}/{role}')
 async def push(queue_n : str, message : str, role : str):
     if role == "secretary":
@@ -40,7 +39,6 @@ async def push(queue_n : str, message : str, role : str):
     return {"message":"success"}
 
 
-# TODO Implement
 @app.get('/queue/{queue_n}/{role}')
 async def pull(queue_n : str, message : str, role : str):
     if role != "admin" or role != "manager":
@@ -50,7 +48,6 @@ async def pull(queue_n : str, message : str, role : str):
     content = await queue.get(message)
     return {"message":content}
 
-# TODO Implement
 @app.get('/queues')
 async def list_out(role: str):
     if role != "admin" or role != "manager":
