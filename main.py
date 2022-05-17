@@ -69,7 +69,5 @@ async def delete(queue_n : str ,role : str):
         raise HTTPException(400,detail=exeption)
         
 
-
-
 if __name__ == "__main__":
     uvicorn.run(app, host=LOCAL_HOST, port=7500)
