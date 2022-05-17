@@ -43,7 +43,7 @@ async def push(queue_n : str, message : str, role : str):
 # TODO Implement
 @app.get('/queue/{queue_n}/{role}')
 async def pull(queue_n : str, message : str, role : str):
-    if role == "secretary":
+    if role != "admin" or role != "manager":
         return {"message":"insufficient privileges"}
 
     queue = queues[queue_n]
