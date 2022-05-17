@@ -20,10 +20,20 @@ app = FastAPI()
 async def root():
     return {"message": "Hello, message queue"}
 
-
+# TODO Implement
 @app.get('/queue/{queue_n}')
 async def push(queue_n : str):
     return {"message":f"queue nr.{queue_n}"}
+
+# TODO Implement
+@app.get('/queue/{queue_n}')
+async def pull(queue_n : str):
+    pass
+
+# TODO Implement
+@app.get('/queue/{queue_n}')
+async def list_out(queue_n : str):
+    pass
 
 
 
