@@ -33,7 +33,7 @@ async def root():
 @app.post('/queue/{queue_n}/{role}')
 async def push(queue_n : str, message : str, role : str):
     if role == "secretary":
-        return {"message":"insufficient privileges"}
+        raise HTTPException(400,detail="insufficient privileges")
         
     queue = queues[queue_n]
     await queue.put(message)
@@ -44,7 +44,7 @@ async def push(queue_n : str, message : str, role : str):
 @app.get('/queue/{queue_n}/{role}')
 async def pull(queue_n : str, message : str, role : str):
     if role != "admin" or role != "manager":
-        return {"message":"insufficient privileges"}
+        raise HTTPException(400,detail="insufficient privileges")
 
     queue = queues[queue_n]
     content = await queue.get(message)
@@ -52,7 +52,9 @@ async def pull(queue_n : str, message : str, role : str):
 
 # TODO Implement
 @app.get('/queues')
-async def list_out():
+async def list_out(role: str):
+    if role != "admin" or role != "manager":
+        raise HTTPException(400,detail="insufficient privileges")
     return {"message": list(queues.keys())}
 
 # TODO Implement
