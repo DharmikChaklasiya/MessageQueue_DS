@@ -1,4 +1,4 @@
-# Assignment 3: MessageQueue (Radomir Roman & Dhamrik Chaklasiya)
+# Assignment 3: MessageQueue (Radomir Roman & Dharmik Chaklasiya)
 
 we are using Fast API because FastAPI is a Python framework and set of tools that enables developers to use a REST interface to call commonly used functions to implement applications. It is accessed through a REST API to call common building blocks for an app.
 
